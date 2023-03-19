@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: const [
               CustomCard(
-                  title: "API vers ChatGPT",
+                  title: "API vers ChatGPTT",
                   description: "Requête vers ChatGPT",
                   imagePath: "assets/icons/ChatGPT_logo.svg",
                   app: ChatGPTApp1())
