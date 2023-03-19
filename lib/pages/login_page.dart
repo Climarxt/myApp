@@ -19,7 +19,7 @@ class _LoginPageState extends State<LoginPage> {
 
   // sign user in method
   void signUserIn() {
-    // once user is authenticated, direct them to the main page
+    // once user is authenticated, direct them to the main page test
     Navigator.pop(context);
     Navigator.push(
       context,
