@@ -12,14 +12,11 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  // text editing controllers
   final usernameController = TextEditingController();
 
   final passwordController = TextEditingController();
 
-  // sign user in method
   void signUserIn() {
-    // once user is authenticated, direct them to the main page
     Navigator.pop(context);
     Navigator.push(
       context,
@@ -40,17 +37,12 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const SizedBox(height: 50),
-
-                // logo
                 Icon(
                   Icons.lock,
                   size: 100,
                   color: Colors.grey[900],
                 ),
-
                 const SizedBox(height: 50),
-
-                // welcome back, you've been missed!
                 Text(
                   'Welcome back you\'ve been missed!',
                   style: TextStyle(
@@ -58,28 +50,19 @@ class _LoginPageState extends State<LoginPage> {
                     fontSize: 16,
                   ),
                 ),
-
                 const SizedBox(height: 25),
-
-                // username textfield
                 MyTextField(
                   controller: usernameController,
                   hintText: 'Username',
                   obscureText: false,
                 ),
-
                 const SizedBox(height: 10),
-
-                // password textfield
                 MyTextField(
                   controller: passwordController,
                   hintText: 'Password',
                   obscureText: true,
                 ),
-
                 const SizedBox(height: 10),
-
-                // forgot password?
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: Row(
@@ -92,17 +75,11 @@ class _LoginPageState extends State<LoginPage> {
                     ],
                   ),
                 ),
-
                 const SizedBox(height: 25),
-
-                // sign in button
                 MyButton(
                   onTap: signUserIn,
                 ),
-
                 const SizedBox(height: 50),
-
-                // or continue with
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: Row(
@@ -129,19 +106,12 @@ class _LoginPageState extends State<LoginPage> {
                     ],
                   ),
                 ),
-
                 const SizedBox(height: 50),
-
-                // google + apple sign in buttons
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: const [
-                    // google button
                     SquareTile(imagePath: 'lib/images/google.png'),
-
                     SizedBox(width: 25),
-
-                    // apple button
                     SquareTile(imagePath: 'lib/images/apple.png')
                   ],
                 ),
