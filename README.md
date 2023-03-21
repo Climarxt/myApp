@@ -8,4 +8,4 @@ A web application that allows me to learn more about dev.
 Dart - Flutter - Strapi - API - MAKE (ex Integromat)
 
 ## Link
-http://christianbastide.com
+https://christianbastide.com
