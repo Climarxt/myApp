@@ -5,7 +5,7 @@ My own website.
 A web application that allows me to learn more about dev. 
 
 ## Stack - BaaS 
-Dart - Flutter - Strapi - API - MAKE (ex Integromat)
+Dart - Flutter - Strapi - API
 
 ## Link
 https://christianbastide.com
