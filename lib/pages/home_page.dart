@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/widgets/customcard.dart';
 
-import '../screens/screens.dart';
+import '../app/apps.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
