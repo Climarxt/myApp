@@ -4,8 +4,8 @@ import 'package:http/http.dart' as http;
 
 import '../util/constants.dart';
 
-class ChatGPTApp1 extends StatelessWidget {
-  const ChatGPTApp1({Key? key}) : super(key: key);
+class App2 extends StatelessWidget {
+  const App2({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class ChatGPTApp1 extends StatelessWidget {
         elevation: 3,
         centerTitle: true,
         title: const Text(
-          "API vers ChatGPT",
+          "API 2",
           style: TextStyle(color: black),
         ),
       ),
@@ -27,7 +27,7 @@ class ChatGPTApp1 extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: const [Text('APP1 version 0.1'), Text('18/03/2023')],
+          children: const [Text('APP2 version 0.1'), Text('25/03/2023')],
         ),
       ),
     );
