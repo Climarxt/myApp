@@ -4,21 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ProfilePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Présentation personnelle',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: PersonalPresentation(),
-    );
-  }
-}
-
-class PersonalPresentation extends StatelessWidget {
-  const PersonalPresentation({super.key});
+  const ProfilePage({super.key});
 
   Future<void> _launchURL(String url) async {
     if (await canLaunch(url)) {

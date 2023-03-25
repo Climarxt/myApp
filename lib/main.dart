@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      title: 'Christian Bastide',
       theme: ThemeData(
         pageTransitionsTheme: const PageTransitionsTheme(builders: {
           TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
