@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_svg/flutter_svg.dart';
 
-import 'app/apps.dart';
+import '../screens/screens.dart';
 import 'pages/pages.dart';
 
 class MainPage extends StatefulWidget {

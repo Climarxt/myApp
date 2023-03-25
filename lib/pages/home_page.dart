@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/widgets/customcard.dart';
 
-import '../app/apps.dart';
+import '../screens/screens.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -17,10 +17,15 @@ class HomePage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: const [
               CustomCard(
-                  title: "API vers ChatGPTT",
-                  description: "Requête vers ChatGPT",
+                  title: "API 1",
+                  description: "Requête vers API 1",
                   imagePath: "assets/icons/ChatGPT_logo.svg",
-                  app: ChatGPTApp1())
+                  app: App1()),
+              CustomCard(
+                  title: "API 2",
+                  description: "Requête vers API 2",
+                  imagePath: "assets/icons/ChatGPT_logo.svg",
+                  app: App2())
             ],
           )),
     );
