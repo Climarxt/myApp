@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/main_page.dart';
+import 'package:flutter_web_plugins/flutter_web_plugins.dart';
+
+import 'config/app_router.dart';
 
 void main() {
+  setUrlStrategy(PathUrlStrategy());
   runApp(const MyApp());
 }
 
@@ -10,9 +13,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp.router(
+      theme: ThemeData(
+        pageTransitionsTheme: const PageTransitionsTheme(builders: {
+          TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+          TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+          TargetPlatform.linux: CupertinoPageTransitionsBuilder(),
+          TargetPlatform.macOS: CupertinoPageTransitionsBuilder(),
+          TargetPlatform.windows: CupertinoPageTransitionsBuilder(),
+        }),
+      ),
       debugShowCheckedModeBanner: false,
-      home: MainPage(),
+      routerConfig: router,
     );
   }
 }

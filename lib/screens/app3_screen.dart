@@ -4,8 +4,8 @@ import 'package:http/http.dart' as http;
 
 import '../util/constants.dart';
 
-class App1 extends StatelessWidget {
-  const App1({Key? key}) : super(key: key);
+class App3 extends StatelessWidget {
+  const App3({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class App1 extends StatelessWidget {
         elevation: 3,
         centerTitle: true,
         title: const Text(
-          "API 1",
+          "API 3",
           style: TextStyle(color: black),
         ),
       ),
@@ -27,7 +27,7 @@ class App1 extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: const [Text('APP1 version 0.1'), Text('18/03/2023')],
+          children: const [Text('APP3 version 0.1'), Text('25/03/2023')],
         ),
       ),
     );

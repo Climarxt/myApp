@@ -3,8 +3,8 @@ import 'package:myapp/widgets/customcard.dart';
 
 import '../screens/screens.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class FirstPage extends StatelessWidget {
+  const FirstPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,14 +18,14 @@ class HomePage extends StatelessWidget {
             children: const [
               CustomCard(
                   title: "API 1",
-                  description: "Requête vers API 1",
+                  description: "API request - 1",
                   imagePath: "assets/icons/ChatGPT_logo.svg",
-                  app: App1()),
+                  app: '/app1'),
               CustomCard(
                   title: "API 2",
-                  description: "Requête vers API 2",
+                  description: "API request - 2",
                   imagePath: "assets/icons/ChatGPT_logo.svg",
-                  app: App2())
+                  app: '/app2')
             ],
           )),
     );

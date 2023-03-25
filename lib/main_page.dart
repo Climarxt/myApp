@@ -17,10 +17,10 @@ class _MainPageState extends State<MainPage> {
   int _selectedPageIndex = 0;
 
   // Pages à afficher dans l'IndexedStack
-  final List<Widget> _pages = const [
-    HomePage(),
+  final List<Widget> _pages = [
+    FirstPage(),
+    SecondPage(),
     ProfilePage(),
-    SettingsPage(),
     AboutPage(),
   ];
 
@@ -60,20 +60,20 @@ class _MainPageState extends State<MainPage> {
           ),
           destinations: const [
             NavigationRailDestination(
-              icon: Icon(Icons.home),
-              label: Text('Home'),
+              icon: Icon(Icons.api),
+              label: SizedBox.shrink(),
+            ),
+            NavigationRailDestination(
+              icon: Icon(Icons.sync),
+              label: SizedBox.shrink(),
             ),
             NavigationRailDestination(
               icon: Icon(Icons.person),
-              label: Text('Profile'),
-            ),
-            NavigationRailDestination(
-              icon: Icon(Icons.settings),
-              label: Text('Settings'),
+              label: SizedBox.shrink(),
             ),
             NavigationRailDestination(
               icon: Icon(Icons.question_mark_outlined),
-              label: Text('About'),
+              label: SizedBox.shrink(),
             ),
           ],
           elevation: 4,

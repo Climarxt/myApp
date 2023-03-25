@@ -1,12 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomCard extends StatelessWidget {
   final String title;
   final String description;
   final String imagePath;
-  final Widget app;
+  final String app;
 
   const CustomCard(
       {super.key,
@@ -20,11 +21,7 @@ class CustomCard extends StatelessWidget {
     return Card(
       child: InkWell(
         onTap: () {
-          // Navigation vers la nouvelle page
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => app),
-          );
+          return context.go(app);
         },
         child: Row(
           children: <Widget>[

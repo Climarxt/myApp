@@ -1,45 +1,84 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+
+import 'package:url_launcher/url_launcher.dart';
 
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Présentation personnelle',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: PersonalPresentation(),
+    );
+  }
+}
+
+class PersonalPresentation extends StatelessWidget {
+  const PersonalPresentation({super.key});
+
+  Future<void> _launchURL(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Impossible de lancer $url';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        // top circle profile pic
-        Center(
-          child: Padding(
-            padding: const EdgeInsets.all(25.0),
-            child: Container(
-              height: 160,
-              width: 160,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.grey[200],
-              ),
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const CircleAvatar(
+              backgroundImage: AssetImage('assets/images/profile.jpg'),
+              radius: 80,
             ),
-          ),
-        ),
-
-        // grid of photos or items
-        GridView.builder(
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          itemCount: 10,
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2),
-          itemBuilder: (context, index) => Container(
-            height: 200,
-            margin: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(4),
-              color: Colors.grey[200],
+            const SizedBox(height: 20),
+            const Text(
+              'Christian Bastide',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-          ),
+            const SizedBox(height: 10),
+            const Text(
+              'Personal website',
+              style: TextStyle(fontSize: 18, fontStyle: FontStyle.italic),
+            ),
+            const SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                IconButton(
+                  icon: SvgPicture.asset(
+                    'assets/icons/linkedin2.svg',
+                    width: 64,
+                  ),
+                  onPressed: () {
+                    _launchURL(
+                        "https://www.linkedin.com/in/christian-bastide-0b5209125");
+                  },
+                ),
+                const SizedBox(width: 20),
+                IconButton(
+                  icon: SvgPicture.asset(
+                    'assets/icons/github2.svg',
+                    width: 64,
+                  ),
+                  onPressed: () {
+                    _launchURL("https://github.com/Climarxt");
+                  },
+                ),
+              ],
+            ),
+          ],
         ),
-      ],
+      ),
     );
   }
 }
