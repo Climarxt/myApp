@@ -17,7 +17,8 @@ class ChatGPT {
 
   static GetStorage storage = GetStorage();
 
-  static String chatGptToken = 'This my key :)'; // token
+  static String chatGptToken =
+      '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'; // token
   static String defaultModel = 'gpt-3.5-turbo';
   static List defaultRoles = [
     'system',
