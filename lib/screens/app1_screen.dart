@@ -180,7 +180,7 @@ class _App1State extends State<App1> {
                 ),
               ),
             ),
-            _renderBottomInputWidget(),
+            // _renderBottomInputWidget(),
           ],
         ),
       ),
