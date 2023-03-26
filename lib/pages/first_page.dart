@@ -18,7 +18,7 @@ class FirstPage extends StatelessWidget {
             children: const [
               CustomCard(
                   title: "API 1",
-                  description: "API request - 1",
+                  description: "API ChatGPT",
                   imagePath: "assets/icons/ChatGPT_logo.svg",
                   app: '/app1'),
               CustomCard(
