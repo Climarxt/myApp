@@ -338,15 +338,15 @@ class ChatGPT {
     });
   }
 
-  static Future<OpenAIImageModel> genImage(String imageDesc) async {
-    debugPrint('---genImage starting: $imageDesc---');
-    OpenAIImageModel image = await OpenAI.instance.image.create(
-      prompt: imageDesc,
-      n: 1,
-      size: OpenAIImageSize.size1024,
-      responseFormat: OpenAIResponseFormat.url,
-    );
-    debugPrint('---genImage success: $image---');
-    return image;
-  }
+  // static Future<OpenAIImageModel> genImage(String imageDesc) async {
+  //   debugPrint('---genImage starting: $imageDesc---');
+  //   OpenAIImageModel image = await OpenAI.instance.image.create(
+  //     prompt: imageDesc,
+  //     n: 1,
+  //     size: OpenAIImageSize.size1024,
+  //     responseFormat: OpenAIResponseFormat.url,
+  //   );
+  //   debugPrint('---genImage success: $image---');
+  //   return image;
+  // }
 }
