@@ -12,14 +12,13 @@ class ChatGPT {
   ChatGPT._() {}
 
   static ChatGPT _getInstance() {
-    _instance ??= ChatGPT._();
     return _instance;
   }
 
   static GetStorage storage = GetStorage();
 
   static String chatGptToken =
-      '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'; // token
+      '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'; // token
   static String defaultModel = 'gpt-3.5-turbo';
   static List defaultRoles = [
     'system',
@@ -291,7 +290,7 @@ class ChatGPT {
       model: model,
     );
     debugPrint('---text $text---');
-    String content = chatCompletion.choices.first.message.content ?? '';
+    String content = chatCompletion.choices.first.message.content;
     bool hasRelation = content.toLowerCase().contains('true');
     debugPrint('---检查问题前后关联度 $hasRelation---');
     return hasRelation;
