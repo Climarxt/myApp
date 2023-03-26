@@ -1,15 +1,15 @@
-import '/components/QuestionInput.dart';
-import '/util/Chatgpt.dart';
-import '/util/Config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '/stores/AIChatStore.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:provider/provider.dart';
 import 'package:lottie/lottie.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:share_plus/share_plus.dart';
+
+import '../components/QuestionInput.dart';
+import '../stores/AIChatStore.dart';
+import '../util/Chatgpt.dart';
 
 class ChatPage extends StatefulWidget {
   final String chatId;

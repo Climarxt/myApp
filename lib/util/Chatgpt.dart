@@ -9,7 +9,7 @@ class ChatGPT {
 
   static ChatGPT get instance => _getInstance();
 
-  ChatGPT._();
+  ChatGPT._() {}
 
   static ChatGPT _getInstance() {
     _instance ??= ChatGPT._();
@@ -19,7 +19,7 @@ class ChatGPT {
   static GetStorage storage = GetStorage();
 
   static String chatGptToken =
-      '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'; // token
+      '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'; // token
   static String defaultModel = 'gpt-3.5-turbo';
   static List defaultRoles = [
     'system',
@@ -250,7 +250,7 @@ class ChatGPT {
     List<OpenAIChatCompletionChoiceMessageModel> modelMessages = [];
     for (var element in messages) {
       modelMessages.add(OpenAIChatCompletionChoiceMessageModel(
-        role: element["role"],
+        role: OpenAIChatMessageRole.user,
         content: element["content"],
       ));
     }
@@ -338,15 +338,15 @@ class ChatGPT {
     });
   }
 
-  // static Future<OpenAIImageModel> genImage(String imageDesc) async {
-  //   debugPrint('---genImage starting: $imageDesc---');
-  //   OpenAIImageModel image = await OpenAI.instance.image.create(
-  //     prompt: imageDesc,
-  //     n: 1,
-  //     size: OpenAIImageSize.size1024,
-  //     responseFormat: OpenAIResponseFormat.url,
-  //   );
-  //   debugPrint('---genImage success: $image---');
-  //   return image;
-  // }
+  static Future<OpenAIImageModel> genImage(String imageDesc) async {
+    debugPrint('---genImage starting: $imageDesc---');
+    OpenAIImageModel image = await OpenAI.instance.image.create(
+      prompt: imageDesc,
+      n: 1,
+      size: OpenAIImageSize.size1024,
+      responseFormat: OpenAIImageResponseFormat.url,
+    );
+    debugPrint('---genImage success: $image---');
+    return image;
+  }
 }
