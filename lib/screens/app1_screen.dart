@@ -120,7 +120,6 @@ class _App1State extends State<App1> {
             iconSize: 32,
             color: const Color.fromRGBO(98, 98, 98, 1.0),
             onPressed: () {
-              // ChatGPT.genImage('Robot avatar, cute');
               Utils.jumpPage(context, const SettingPage());
             },
           ),

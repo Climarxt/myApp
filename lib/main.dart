@@ -36,6 +36,7 @@ class MyApp extends StatelessWidget {
           TargetPlatform.macOS: CupertinoPageTransitionsBuilder(),
           TargetPlatform.windows: CupertinoPageTransitionsBuilder(),
         }),
+        fontFamily: 'Roboto',
       ),
       debugShowCheckedModeBanner: false,
       routerConfig: router,
