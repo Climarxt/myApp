@@ -9,6 +9,7 @@ import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'config/app_router.dart';
 
 void main() async {
+  setUrlStrategy(PathUrlStrategy());
   await GetStorage.init();
   await ChatGPT.initChatGPT();
   runApp(
@@ -38,7 +39,6 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       routerConfig: router,
-      builder: EasyLoading.init(),
     );
   }
 }

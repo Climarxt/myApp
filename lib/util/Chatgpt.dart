@@ -9,17 +9,16 @@ class ChatGPT {
 
   static ChatGPT get instance => _getInstance();
 
-  ChatGPT._();
+  ChatGPT._() {}
 
   static ChatGPT _getInstance() {
-    _instance ??= ChatGPT._();
     return _instance;
   }
 
   static GetStorage storage = GetStorage();
 
   static String chatGptToken =
-      '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'; // token
+      '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'; // token
   static String defaultModel = 'gpt-3.5-turbo';
   static List defaultRoles = [
     'system',
@@ -250,7 +249,7 @@ class ChatGPT {
     List<OpenAIChatCompletionChoiceMessageModel> modelMessages = [];
     for (var element in messages) {
       modelMessages.add(OpenAIChatCompletionChoiceMessageModel(
-        role: element["role"],
+        role: OpenAIChatMessageRole.user,
         content: element["content"],
       ));
     }
@@ -291,7 +290,7 @@ class ChatGPT {
       model: model,
     );
     debugPrint('---text $text---');
-    String content = chatCompletion.choices.first.message.content ?? '';
+    String content = chatCompletion.choices.first.message.content;
     bool hasRelation = content.toLowerCase().contains('true');
     debugPrint('---检查问题前后关联度 $hasRelation---');
     return hasRelation;
@@ -344,7 +343,7 @@ class ChatGPT {
       prompt: imageDesc,
       n: 1,
       size: OpenAIImageSize.size1024,
-      responseFormat: OpenAIResponseFormat.url,
+      responseFormat: OpenAIImageResponseFormat.url,
     );
     debugPrint('---genImage success: $image---');
     return image;
