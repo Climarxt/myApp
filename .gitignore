@@ -44,4 +44,4 @@ app.*.map.json
 /android/app/release
 
 # Add by me
-/lib/util/Chatgpt.dart
+Chatgpt.dart
