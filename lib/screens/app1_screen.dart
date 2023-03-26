@@ -1,3 +1,6 @@
+import 'package:flutter_svg/svg.dart';
+
+import '../widgets/customcardAI.dart';
 import '/components/QuestionInput.dart';
 import '/screens/ChatHistoryPage.dart';
 import '/screens/ChatPage.dart';
@@ -94,10 +97,10 @@ class _App1State extends State<App1> {
             ClipRRect(
               borderRadius: BorderRadius.circular(30.0),
               clipBehavior: Clip.antiAlias,
-              child: const Image(
+              child: SvgPicture.asset(
+                "assets/icons/ChatGPT_logo.svg",
                 width: 36,
                 height: 36,
-                image: AssetImage('images/logo.png'),
               ),
             ),
             const SizedBox(width: 8),
@@ -105,7 +108,7 @@ class _App1State extends State<App1> {
               Config.appName,
               style: const TextStyle(
                 color: Color.fromRGBO(54, 54, 54, 1.0),
-                fontSize: 18,
+                fontSize: 22,
                 height: 1,
               ),
             ),
@@ -203,7 +206,7 @@ class _App1State extends State<App1> {
             textAlign: TextAlign.start,
             style: const TextStyle(
               color: Color.fromRGBO(1, 2, 6, 1),
-              fontSize: 22,
+              fontSize: 20,
               height: 1,
               fontWeight: FontWeight.bold,
             ),
@@ -215,90 +218,66 @@ class _App1State extends State<App1> {
   }
 
   Widget _renderChatModelListWidget() {
-    List<Widget> list = [];
-    for (var i = 0; i < ChatGPT.chatModelList.length; i++) {
-      list.add(
-        _genChatModelItemWidget(ChatGPT.chatModelList[i]),
-      );
-    }
-    list.add(
-      const SizedBox(height: 10),
-    );
-    return Column(
-      children: list,
+    return GridView.builder(
+      padding: EdgeInsets.all(10),
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2, // Le nombre d'éléments par ligne
+        crossAxisSpacing: 4, // L'espacement horizontal entre les éléments
+        mainAxisSpacing: 4, // L'espacement vertical entre les éléments
+        childAspectRatio: 4, // Le rapport largeur/hauteur des éléments
+      ),
+      itemCount: ChatGPT.chatModelList.length,
+      itemBuilder: (BuildContext context, int index) {
+        return _genChatModelItemWidget(ChatGPT.chatModelList[index]);
+      },
     );
   }
 
   Widget _genChatModelItemWidget(Map chatModel) {
-    return InkWell(
-      highlightColor: Colors.transparent,
-      splashColor: Colors.transparent,
-      onTap: () {
-        _handleClickModel(chatModel);
-      },
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const SizedBox(height: 10),
-          Container(
-            width: MediaQuery.of(context).size.width,
-            padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-            child: Container(
-              clipBehavior: Clip.antiAlias,
-              decoration: BoxDecoration(
-                color: const Color.fromRGBO(229, 245, 244, 1),
-                borderRadius: BorderRadius.circular(16.0),
-              ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: Container(
-                      padding: const EdgeInsets.fromLTRB(20, 20, 0, 20),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            chatModel['name'],
-                            softWrap: true,
-                            style: const TextStyle(
-                              color: Color.fromRGBO(1, 2, 6, 1),
-                              fontSize: 16,
-                              height: 24 / 16,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          const SizedBox(height: 8),
-                          Text(
-                            chatModel['desc'],
-                            softWrap: true,
-                            style: const TextStyle(
-                              color: Color.fromRGBO(144, 152, 154, 1),
-                              fontSize: 16,
-                              height: 22 / 16,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 0,
-                    child: Container(
-                      padding: const EdgeInsets.fromLTRB(20, 12, 20, 12),
-                      child: const Image(
-                        image: AssetImage('images/arrow_icon.png'),
-                        width: 22,
-                      ),
-                    ),
-                  ),
-                ],
+    return Card(
+      child: InkWell(
+        highlightColor: Colors.transparent,
+        splashColor: Colors.transparent,
+        onTap: () {
+          _handleClickModel(chatModel);
+        },
+        child: Row(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SvgPicture.asset(
+                "assets/icons/ChatGPT_logo.svg",
+                width: 80,
+                height: 80,
               ),
             ),
-          ),
-          const SizedBox(height: 10),
-        ],
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      chatModel['name'],
+                      style: const TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      chatModel['desc'],
+                      style: const TextStyle(
+                          fontSize: 12, fontStyle: FontStyle.italic),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
